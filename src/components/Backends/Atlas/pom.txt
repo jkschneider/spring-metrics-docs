@@ -1,0 +1,5 @@
+<dependency>
+  <group>com.netflix.spectator</group>
+  <artifact>spectator-reg-atlas</artifact>
+  <version>${atlas.version}</version>
+</dependency>

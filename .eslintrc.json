@@ -10,6 +10,6 @@
   ],
 
   "rules": {
-    "react/prefer-es6-class": "error"
+    "react/forbid-prop-types": "off"
   }
 }

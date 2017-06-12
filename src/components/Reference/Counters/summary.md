@@ -1,4 +1,4 @@
-## Counters
+## [Counters](#counters)
 
 Counters report a single metric, a count. The `Counter` interface allows you to increment by a fixed amount, and isn't
 opinionated about whether that fixed amount may be negative.

@@ -1,12 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactMarkdown from 'react-markdown';
+import ReactMarkdown from 'react-remarkable';
+import hljs from 'highlight.js';
 import format from 'string-template';
-import CodeBlock from './codeBlock';
 
 export default function Markdown({ source, templates }) {
   return (
-    <ReactMarkdown renderers={{ CodeBlock }} source={format(source, templates)} />
+    <ReactMarkdown
+      options={{
+        highlight(str, lang) {
+          if (lang && hljs.getLanguage(lang)) {
+            try {
+              return hljs.highlight(lang, str).value;
+            } catch (err) { console.log(err); }
+          }
+
+          try {
+            return hljs.highlightAuto(str).value;
+          } catch (err) { console.log(err); }
+
+          return ''; // use external default escaping
+        },
+        langPrefix: 'hljs language-',
+      }}
+    >
+      {format(source, templates)}
+    </ReactMarkdown>
   );
 }
 
@@ -16,6 +35,6 @@ Markdown.defaultProps = {
 };
 
 Markdown.propTypes = {
-  source: PropTypes.string,
-  templates: PropTypes.objectOf(),
+  source: PropTypes.any,
+  templates: PropTypes.object,
 };
