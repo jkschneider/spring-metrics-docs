@@ -1,10 +1,9 @@
 import React from 'react';
-import Markdown from 'react-markdown';
 import summary from './summary.md';
-import CodeBlock from '../CodeBlock';
+import HighlightedMarkdown from '../HighlightedMarkdown';
 
 export default function Counter() {
   return (
-    <Markdown renderers={{ CodeBlock }} source={summary} />
+    <HighlightedMarkdown source={summary} />
   );
 }
