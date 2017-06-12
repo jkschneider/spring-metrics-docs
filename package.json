@@ -16,7 +16,8 @@
     "react-highlight": "^0.10.0",
     "react-markdown": "^2.5.0",
     "react-router": "2.6.1",
-    "reactstrap": "^4.6.2"
+    "reactstrap": "^4.6.2",
+    "string-template": "^1.0.0"
   },
   "devDependencies": {
     "enzyme": "2.4.1",

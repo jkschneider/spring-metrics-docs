@@ -1,9 +1,9 @@
 import React from 'react';
 import summary from './summary.md';
-import HighlightedMarkdown from '../HighlightedMarkdown';
+import Md from '../../Markdown/index';
 
 export default function Counter() {
   return (
-    <HighlightedMarkdown source={summary} />
+    <Md source={summary} />
   );
 }

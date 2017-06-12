@@ -1,0 +1,5 @@
+<dependency>
+  <group>io.prometheus</group>
+  <artifact>simpleclient_common</artifact>
+  <version>${prom.version}</version>
+</dependency>
