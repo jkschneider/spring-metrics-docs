@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "eslint-config-kyt"
+  ],
+
+  "env": {
+  },
+
+  "plugins": [
+  ],
+
+  "rules": {
+    "react/prefer-es6-class": "error"
+  }
+}
