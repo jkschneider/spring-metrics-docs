@@ -1,24 +1,41 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import QuickStart from '../QuickStart';
-import Counters from '../Counters';
 import Md from '../../Markdown';
-import meters from '../Meters/meters.md';
-import meterRegistries from '../MeterRegistries/meterRegistries.md';
-import dimensions from '../Dimensions/dimensions.md';
 
-export default function AllSections({ quickStart }) {
+import quickStartSrc from '../QuickStart/quickStart.md';
+import metersSrc from '../Meters/meters.md';
+import meterRegistriesSrc from '../MeterRegistries/meterRegistries.md';
+import dimensionsSrc from '../Dimensions/dimensions.md';
+import webfluxFnSrc from '../WebfluxFunctional/webfluxFn.md';
+
+import Counters from '../Counters';
+
+export default function AllSections({ quickStart, webfluxFn, counters }) {
   return (
     <div>
-      <QuickStart templates={quickStart} />
-      <Md source={meters} />
-      <Md source={meterRegistries} />
-      <Md source={dimensions} />
-      <Counters />
+      <Md source={quickStartSrc} templates={quickStart} />
+      <Md source={metersSrc} />
+      <Md source={meterRegistriesSrc} />
+      <Md source={dimensionsSrc} />
+      <Counters graph={counters.graph} />
+      <Md source={webfluxFnSrc} templates={webfluxFn} />
     </div>
   );
 }
 
+AllSections.defaultProps = {
+  webfluxFn: {},
+};
+
 AllSections.propTypes = {
-  quickStart: PropTypes.object.isRequired,
+  quickStart: PropTypes.shape({
+    gradle: PropTypes.string,
+    maven: PropTypes.string,
+    enableAnnotation: PropTypes.string.isRequired,
+    extraSetup: PropTypes.string,
+  }).isRequired,
+  webfluxFn: PropTypes.object,
+  counters: PropTypes.shape({
+    graph: PropTypes.node.isRequired,
+  }).isRequired,
 };

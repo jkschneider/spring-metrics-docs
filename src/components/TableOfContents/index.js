@@ -21,6 +21,9 @@ export default function TableOfContents() {
         <NavItem>
           <NavLink href="#counters">Counters</NavLink>
         </NavItem>
+        <NavItem>
+          <NavLink href="#webflux-fn">Webflux Functional</NavLink>
+        </NavItem>
       </Nav>
     </div>
   );

@@ -1,9 +1,22 @@
 import React from 'react';
-import summary from './summary.md';
+import PropTypes from 'prop-types';
+import { Col, Row } from 'reactstrap';
+import counters from './counters.md';
 import Md from '../../Markdown/index';
 
-export default function Counter() {
+export default function Counter({ graph }) {
   return (
-    <Md source={summary} />
+    <Row>
+      <Col sm="7">
+        <Md source={counters} />
+      </Col>
+      <Col sm="5">
+        {graph}
+      </Col>
+    </Row>
   );
 }
+
+Counter.propTypes = {
+  graph: PropTypes.node.isRequired,
+};

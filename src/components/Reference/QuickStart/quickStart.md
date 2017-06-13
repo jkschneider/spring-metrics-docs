@@ -5,8 +5,7 @@ Pre-release artifacts are being published frequently, but are NOT intended for p
 In Gradle:
 
 ```groovy
-compile 'org.springframework.metrics:spring-metrics:latest.release'
-{gradle}
+compile 'org.springframework.metrics:spring-metrics:latest.release'{gradle}
 ```
 
 Or in Maven:
@@ -16,8 +15,7 @@ Or in Maven:
   <groupId>org.springframework.metrics</groupId>
   <artifactId>spring-metrics</artifactId>
   <version>${metrics.version}</version>
-</dependency>
-{maven}
+</dependency>{maven}
 ```
 
 Enable metrics in your Spring Boot application with `{enableAnnotation}`:
@@ -49,6 +47,8 @@ class PersonController {
     }
 }
 ```
+
+{extraSetup}
 
 In this sample code, multiple dimensional time series are created with a variety of metrics:
 

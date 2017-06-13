@@ -17,7 +17,7 @@ registry.counter("db_size", "table", "users")
 ```
 
 This variant provides enough context so that if just the name is selected the value can be reasoned about and
-is at least potentially meaningful. For example if we select `threadpool.size` we can see the total number of
+is at least potentially meaningful. For example if we select `threadpool_size` we can see the total number of
 threads in all pools. Then we can group by or select an `id` to drill down further or perform comparative
 analysis on the contribution of each functional area to the number of threads consumed by the instrumented app.
 
@@ -36,3 +36,11 @@ registry.counter("size",
 
 In this approach, if we select `size` we will get a value that is an aggregate of the number of threads
 and the number of items in a database. This time series is not useful without further dimensional drill-down.
+
+### Metric and tag naming
+
+`spring-metrics` employs a naming convention that separates words with '_'. Camel casing is also perfectly acceptable.
+We recommend staying away from '-' and '.' as word separators to maintain the greatest degree of independence
+from a particular monitoring backend. '-' is interpreted as metric subtraction in some monitoring systems (e.g. Prometheus),
+and '.' is used to flatten tags into hierarchical names when shipping metrics to hierarchical backends like
+Graphite.

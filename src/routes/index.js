@@ -19,6 +19,12 @@ const importAtlas = (nextState, cb) => {
     .catch((e) => { throw e; });
 };
 
+const importDatadog = (nextState, cb) => {
+  import(/* webpackChunkName: "tools" */'../components/Backends/Datadog')
+    .then(module => cb(null, module.default))
+    .catch((e) => { throw e; });
+};
+
 // We use `getComponent` to dynamically load routes.
 // https://github.com/reactjs/react-router/blob/master/docs/guides/DynamicRouting.md
 const routes = (
@@ -26,6 +32,7 @@ const routes = (
     <IndexRoute getComponent={importPrometheus} />
     <Route path="prometheus" getComponent={importPrometheus} />
     <Route path="atlas" getComponent={importAtlas} />
+    <Route path="datadog" getComponent={importDatadog} />
   </Route>
 );
 
