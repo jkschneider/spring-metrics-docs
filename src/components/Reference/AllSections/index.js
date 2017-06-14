@@ -15,11 +15,17 @@ export default function AllSections({ quickStart, webfluxFn, counters, timers })
   return (
     <div>
       <Md source={quickStartSrc} templates={quickStart} />
+      <hr />
       <Md source={metersSrc} />
+      <hr />
       <Md source={meterRegistriesSrc} />
+      <hr />
       <Md source={dimensionsSrc} />
+      <hr />
       <Counters graph={counters.graph} />
+      <hr />
       <Timers graph={timers.graph} baseUnit={timers.baseUnit} extra={timers.extra} />
+      <hr />
       <Md source={webfluxFnSrc} templates={webfluxFn} />
     </div>
   );
