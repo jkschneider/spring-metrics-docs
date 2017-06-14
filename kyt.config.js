@@ -1,8 +1,8 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+
 module.exports = {
-  reactHotLoader: true,
-  debug: false,
+  productionPublicPath: '/spring-metrics/',
   hasServer: false,
   modifyWebpackConfig: (config, options) => {
     if (options.type === 'client') {
