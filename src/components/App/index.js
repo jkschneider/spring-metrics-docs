@@ -40,7 +40,7 @@ export default function App() {
           </div>
 
           <div className="mt-3">
-            <Redirect from="/" to="/prometheus" />
+            <Route exact path="/" render={() => <Redirect to="/prometheus" />} />
             <Route path="/prometheus" component={Prometheus} />
             <Route path="/atlas" component={Atlas} />
             <Route path="/datadog" component={Datadog} />

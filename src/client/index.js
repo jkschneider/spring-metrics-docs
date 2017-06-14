@@ -15,9 +15,12 @@ const hashLinkScroll = () => {
   }
 };
 
+$(window).on('hashchange', hashLinkScroll);
+
 render(
-  <BrowserRouter onUpdate={hashLinkScroll}>
+  <BrowserRouter basename={'/spring-metrics/docs/current/public'}>
     <App />
   </BrowserRouter>,
-  document.querySelector('#root')
+  document.querySelector('#root'),
+  hashLinkScroll
 );
