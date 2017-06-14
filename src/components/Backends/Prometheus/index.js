@@ -11,6 +11,12 @@ import extraTimer from './extraTimer.md';
 
 import nonNormalizedCounterGraph from '../../../images/prometheus-counter-norate.png';
 
+import longTaskTimerGraph from '../../../images/prometheus-long-task-timer.png';
+
+import extraGuage from './extraGauge.md';
+
+import extraWebfluxFn from './extraWebfluxFn.md';
+
 export default function Prometheus() {
   return (
     <div>
@@ -60,6 +66,24 @@ export default function Prometheus() {
           ),
           baseUnit: 'Prometheus recommends recording timings in seconds (as this is technically a base unit), but records this value as a `double`',
           extra: extraTimer,
+        }}
+        longTaskTimers={{
+          graph: (
+            <div>
+              <figure className="figure">
+                <img src={longTaskTimerGraph} className="figure-img img-fluid" alt="Prometheus-rendered long task timer" />
+                <figcaption className="figure-caption text-right">Simulated back-to-back long tasks.</figcaption>
+              </figure>
+              <strong>Prometheus Query</strong>
+              <Md source={'```longTaskTimer{statistic="duration"}```'} />
+            </div>
+          ),
+        }}
+        gauges={{
+          extra: extraGuage,
+        }}
+        web={{
+          extraWebfluxFn: `${extraWebfluxFn}`,
         }}
       />
     </div>

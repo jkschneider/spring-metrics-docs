@@ -12,6 +12,9 @@ import timerGraph from '../../../images/atlas-timer.png';
 import timerQuery from './timerQuery.md';
 import extraTimer from './extraTimer.md';
 
+import longTaskTimerGraph from '../../../images/atlas-long-task-timer.png';
+import longTaskTimerQuery from './longTaskTimerQuery.md';
+
 export default function Atlas() {
   return (
     <div>
@@ -47,6 +50,18 @@ export default function Atlas() {
           ),
           baseUnit: 'Spectator records timings with a `long`, and so is biased to maintaining a base unit of nanoseconds',
           extra: extraTimer,
+        }}
+        longTaskTimers={{
+          graph: (
+            <div>
+              <figure className="figure">
+                <img src={longTaskTimerGraph} className="figure-img img-fluid" alt="Atlas-rendered long task timer" />
+                <figcaption className="figure-caption text-right">Simulated back-to-back long tasks.</figcaption>
+              </figure>
+              <p><strong>Atlas Query</strong></p>
+              <Md source={longTaskTimerQuery} />
+            </div>
+          ),
         }}
       />
     </div>

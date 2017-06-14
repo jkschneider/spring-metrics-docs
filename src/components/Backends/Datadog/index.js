@@ -11,6 +11,9 @@ import timerGraph from '../../../images/datadog-timer.png';
 import timerQuery from './timerQuery.md';
 import extraTimer from './extraTimer.md';
 
+import longTaskTimerGraph from '../../../images/datadog-long-task-timer.png';
+import longTaskTimerQuery from './longTaskTimerQuery.md';
+
 export default function Datadog() {
   return (
     <div>
@@ -50,6 +53,18 @@ export default function Datadog() {
           baseUnit: 'Spectator records timings with a `long`, and so is biased to maintaining a base unit of nanoseconds. ' +
             'Datadog also expects nanoseconds as its base unit of time.',
           extra: extraTimer,
+        }}
+        longTaskTimers={{
+          graph: (
+            <div>
+              <figure className="figure">
+                <img src={longTaskTimerGraph} className="figure-img img-fluid" alt="Datadog-rendered long task timer" />
+                <figcaption className="figure-caption text-right">Simulated back-to-back long tasks.</figcaption>
+              </figure>
+              <strong>Datadog Query</strong>
+              <Md source={longTaskTimerQuery} />
+            </div>
+          ),
         }}
       />
     </div>
