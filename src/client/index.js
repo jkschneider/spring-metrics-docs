@@ -1,15 +1,20 @@
-
 import React from 'react';
 import { render } from 'react-dom';
-import Root from './Root';
+import { Router, browserHistory } from 'react-router';
+import $ from 'jquery';
+import routes from '../routes';
 
-const root = document.querySelector('#root');
-
-const mount = (RootComponent) => {
-  render(
-    <RootComponent />,
-    root
-  );
+const hashLinkScroll = () => {
+  const { hash } = window.location;
+  if (hash !== '') {
+    setTimeout(() => {
+      const heading = $(`h2 a[href="${hash}"]`);
+      if (heading.length) heading[0].scrollIntoView();
+    }, 0);
+  }
 };
 
-mount(Root);
+render(
+  <Router history={browserHistory} routes={routes} onUpdate={hashLinkScroll} />,
+  document.querySelector('#root')
+);
