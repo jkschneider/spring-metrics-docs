@@ -1,8 +1,9 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, browserHistory } from 'react-router';
+import { BrowserRouter } from 'react-router-dom';
 import $ from 'jquery';
-import routes from '../routes';
+
+import App from '../components/App';
 
 const hashLinkScroll = () => {
   const { hash } = window.location;
@@ -15,6 +16,8 @@ const hashLinkScroll = () => {
 };
 
 render(
-  <Router history={browserHistory} routes={routes} onUpdate={hashLinkScroll} />,
+  <BrowserRouter onUpdate={hashLinkScroll}>
+    <App />
+  </BrowserRouter>,
   document.querySelector('#root')
 );

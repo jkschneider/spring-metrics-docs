@@ -1,13 +1,17 @@
-import React, { PropTypes } from 'react';
-import { Nav, NavItem, NavLink, Row, Col } from 'reactstrap';
+import React from 'react';
+import { Row, Col } from 'reactstrap';
+import { Route, Redirect } from 'react-router';
+import { NavLink } from 'react-router-dom';
 import Md from '../Markdown';
 import TableOfContents from '../TableOfContents';
 import intro from './intro.md';
 import './style.scss';
 
-export default function App({ children, location }) {
-  const path = location.pathname;
+import Prometheus from '../Backends/Prometheus';
+import Atlas from '../Backends/Atlas';
+import Datadog from '../Backends/Datadog';
 
+export default function App() {
   return (
     <div className="container-fluid">
       <Row>
@@ -22,29 +26,27 @@ export default function App({ children, location }) {
           </div>
 
           <div className="mt-3">
-            <Nav tabs>
-              <NavItem>
-                <NavLink href="/prometheus" active={path === '/prometheus'}>Prometheus</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/datadog" active={path === '/datadog'}>Datadog</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/atlas" active={path === '/atlas'}>Netflix Atlas</NavLink>
-              </NavItem>
-            </Nav>
+            <ul className="nav nav-tabs">
+              <li className="nav-item">
+                <NavLink to="/prometheus" className={'nav-link'} activeClassName={'active'}>Prometheus</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink to="/datadog" className={'nav-link'} activeClassName={'active'}>Datadog</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink to="/atlas" className={'nav-link'} activeClassName={'active'}>Netflix Atlas</NavLink>
+              </li>
+            </ul>
           </div>
 
           <div className="mt-3">
-            {children}
+            <Redirect from="/" to="/prometheus" />
+            <Route path="/prometheus" component={Prometheus} />
+            <Route path="/atlas" component={Atlas} />
+            <Route path="/datadog" component={Datadog} />
           </div>
         </Col>
       </Row>
     </div>
   );
 }
-
-App.propTypes = {
-  children: PropTypes.node.isRequired,
-  location: PropTypes.object.isRequired,
-};

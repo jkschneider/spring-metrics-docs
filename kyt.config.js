@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
 module.exports = {
-  productionPublicPath: '/spring-metrics/',
+  productionPublicPath: '/spring-metrics/docs/current/public/',
   hasServer: false,
   modifyWebpackConfig: (config, options) => {
     if (options.type === 'client') {
