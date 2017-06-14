@@ -1,4 +1,4 @@
-## Timers
+## [Timers](#timers)
 
 Timers are useful for measuring short-duration latencies and the frequency of such events. All implementations of
 `Timer` report at least the total time and count of events as separate time series.

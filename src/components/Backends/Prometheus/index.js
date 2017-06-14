@@ -5,6 +5,10 @@ import extraQuickstart from './extraQuickstart.md';
 import counterGraph from '../../../images/prometheus-counter.png';
 import Md from '../../Markdown';
 
+import timerGraph from '../../../images/prometheus-timer.png';
+import timerQuery from './timerQuery.md';
+import extraTimer from './extraTimer.md';
+
 import nonNormalizedCounterGraph from '../../../images/prometheus-counter-norate.png';
 
 export default function Prometheus() {
@@ -44,8 +48,18 @@ export default function Prometheus() {
           ),
         }}
         timers={{
-          graph: (<div />),
+          graph: (
+            <div>
+              <figure className="figure">
+                <img src={timerGraph} className="figure-img img-fluid" alt="Prometheus-rendered timer" />
+                <figcaption className="figure-caption text-right">Timer over a simulated service.</figcaption>
+              </figure>
+              <strong>Prometheus Queries</strong>
+              <Md source={timerQuery} />
+            </div>
+          ),
           baseUnit: 'Prometheus recommends recording timings in seconds (as this is technically a base unit), but records this value as a `double`',
+          extra: extraTimer,
         }}
       />
     </div>
