@@ -1,4 +1,0 @@
-https://github.com/Netflix/servo/issues/321#issuecomment-101115722
-
-What about t-digests?
-https://github.com/Netflix/spectator/issues/239

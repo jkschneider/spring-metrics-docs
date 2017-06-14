@@ -1,5 +1,0 @@
-<dependency>
-  <group>com.netflix.spectator</group>
-  <artifact>spectator-api</artifact>
-  <version>${spectator.version}</version>
-</dependency>
