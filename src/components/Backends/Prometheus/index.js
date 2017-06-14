@@ -43,6 +43,10 @@ export default function Prometheus() {
             </div>
           ),
         }}
+        timers={{
+          graph: (<div />),
+          baseUnit: 'Prometheus recommends recording timings in seconds (as this is technically a base unit), but records this value as a `double`',
+        }}
       />
     </div>
   );

@@ -9,8 +9,9 @@ import dimensionsSrc from '../Dimensions/dimensions.md';
 import webfluxFnSrc from '../WebfluxFunctional/webfluxFn.md';
 
 import Counters from '../Counters';
+import Timers from '../Timers';
 
-export default function AllSections({ quickStart, webfluxFn, counters }) {
+export default function AllSections({ quickStart, webfluxFn, counters, timers }) {
   return (
     <div>
       <Md source={quickStartSrc} templates={quickStart} />
@@ -18,6 +19,7 @@ export default function AllSections({ quickStart, webfluxFn, counters }) {
       <Md source={meterRegistriesSrc} />
       <Md source={dimensionsSrc} />
       <Counters graph={counters.graph} />
+      <Timers graph={timers.graph} baseUnit={timers.baseUnit} extra={timers.extra} />
       <Md source={webfluxFnSrc} templates={webfluxFn} />
     </div>
   );
@@ -34,8 +36,16 @@ AllSections.propTypes = {
     enableAnnotation: PropTypes.string.isRequired,
     extraSetup: PropTypes.string,
   }).isRequired,
+
   webfluxFn: PropTypes.object,
+
   counters: PropTypes.shape({
     graph: PropTypes.node.isRequired,
+  }).isRequired,
+
+  timers: PropTypes.shape({
+    graph: PropTypes.node.isRequired,
+    baseUnit: PropTypes.string.isRequired,
+    extra: PropTypes.string,
   }).isRequired,
 };
