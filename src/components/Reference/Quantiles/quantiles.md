@@ -1,6 +1,6 @@
 ## [Quantile Statistics](#quantiles)
 
-Timers and distribution summaries can be enriched with https://en.wikipedia.org/wiki/Quantile[quantiles] computed in your app prior to shipping
+Timers and distribution summaries can be enriched with [quantiles](https://en.wikipedia.org/wiki/Quantile) computed in your app prior to shipping
 to a monitoring backend.
 
 ```java
